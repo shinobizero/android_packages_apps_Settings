@@ -22,6 +22,8 @@
 <!-- Custom Settings -->    
   <!-- Dashboard -->
     <string name="header_category_custom">ZeroROM Additions</string>
+    <string name="supersu_title">SuperSU</string>
+    <string name="supersu_summary">Manage root permissions</string>
 
     <!-- Changelog -->
     <string name="changelog_title">Changelog</string>
