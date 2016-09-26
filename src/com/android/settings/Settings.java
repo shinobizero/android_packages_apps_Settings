@@ -166,4 +166,5 @@ public class Settings extends SettingsActivity {
 
     // ZeroROM Additions.
     public static class SuperSUActivity extends SettingsActivity { /* empty */ }
+    public static class SuperUserActivity extends SettingsActivity { /* empty */ }
 }

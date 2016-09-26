@@ -23,6 +23,7 @@
   <!-- Dashboard -->
     <string name="header_category_custom">ZeroROM Additions</string>
     <string name="supersu_title">SuperSU</string>
+    <string name="superuser_title">Superuser</string>
     <string name="supersu_summary">Manage root permissions</string>
 
     <!-- Changelog -->
