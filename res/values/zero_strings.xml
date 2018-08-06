@@ -22,6 +22,8 @@
 <!-- Custom Settings -->    
   <!-- Dashboard -->
     <string name="header_category_custom">ROM Control</string>
+    <string name="zero_settings_title">Personalization</string>
+    <string name="zero_settings_summary">ROM features &amp; customization</string>
     <string name="supersu_title">SuperSU</string>
     <string name="superuser_title">Superuser</string>
     <string name="supersu_summary">Manage root permissions</string>
