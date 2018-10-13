@@ -23,6 +23,7 @@
         <PreferenceScreen android:key="changelog"
                 android:title="@string/changelog_title"
                 android:summary="@string/changelog_summary"
+                android:icon="@drawable/rr_changelog_icon"
                 android:fragment="com.android.settings.zero.Changelog" />
 
         <!-- Device status - launches activity -->
