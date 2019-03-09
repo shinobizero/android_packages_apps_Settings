@@ -19,6 +19,16 @@
         xmlns:settings="http://schemas.android.com/apk/res-auto"
         android:title="@string/about_settings">
 
+        <!-- ZeroROM version -->
+        <Preference android:key="zero_version"
+                android:enabled="false"
+                android:selectable="false" 
+                android:shouldDisableView="false"
+                android:title="@string/zero_version"
+                android:summary="@string/zero_version_default"
+                settings:allowDividerBelow="true"
+                android:icon="@drawable/zero_logo" />
+
         <!-- Changelog -->
         <PreferenceScreen android:key="changelog"
                 android:title="@string/changelog_title"
@@ -38,18 +48,6 @@
                 android:key="manual"
                 android:title="@string/manual">
             <intent android:action="android.settings.SHOW_MANUAL" />
-        </PreferenceScreen>
-
-        <PreferenceScreen
-                android:key="regulatory_info"
-                android:title="@string/regulatory_labels">
-            <intent android:action="android.settings.SHOW_REGULATORY_INFO" />
-        </PreferenceScreen>
-
-        <PreferenceScreen
-                android:key="safety_info"
-                android:title="@string/safety_and_regulatory_info">
-                <intent android:action="android.settings.SHOW_SAFETY_AND_REGULATORY_INFO" />
         </PreferenceScreen>
 
         <!-- Feedback on the device -->
@@ -81,24 +79,6 @@
                 android:shouldDisableView="false"
                 android:title="@string/firmware_version"
                 android:summary="@string/device_info_default"/>
-
-        <!-- Mod version -->
-        <Preference android:key="mod_version"
-                android:enabled="false"
-                android:shouldDisableView="false"
-                android:title="@string/mod_version"
-                android:summary="@string/mod_version_default" />
-
-        <!-- CyanogenMod API Version -->
-        <com.android.settings.DividerPreference
-                android:key="mod_api_level"
-                android:enabled="false"
-                android:selectable="false"
-                android:shouldDisableView="false"
-                android:title="@string/mod_api_level"
-                android:summary="@string/mod_api_level_default"
-                settings:allowDividerAbove="true"
-                settings:allowDividerBelow="true" />
 
         <!-- Security patch level -->
         <PreferenceScreen android:key="security_patch"

@@ -74,9 +74,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String PROPERTY_QGP_VERSION = "persist.qgp.version";
     private static final String MBN_VERSION_PATH = "/persist/speccfg/mbnversion";
     private static final String QGP_VERSION_PATH = "/persist/speccfg/qgpversion";
-    private static final String KEY_MOD_VERSION = "mod_version";
+    private static final String KEY_ZERO_VERSION = "zero_version";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
-    private static final String KEY_MOD_API_LEVEL = "mod_api_level";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
 
@@ -140,12 +139,10 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         if(mMbnVersion == null){
             getPreferenceScreen().removePreference(findPreference(KEY_MBN_VERSION));
         }
-        findPreference(KEY_MOD_VERSION).setSummary(
+        findPreference(KEY_ZERO_VERSION).setSummary(
                 cyanogenmod.os.Build.CYANOGENMOD_DISPLAY_VERSION);
-        findPreference(KEY_MOD_VERSION).setEnabled(true);
+        findPreference(KEY_ZERO_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
-        setExplicitValueSummary(KEY_MOD_API_LEVEL, constructApiLevelString());
-        findPreference(KEY_MOD_API_LEVEL).setEnabled(true);
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
@@ -180,6 +177,11 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
          * Settings is a generic app and should not contain any device-specific
          * info.
          */
+        final Activity act = getActivity();
+
+        // These are contained by the root preference screen
+        PreferenceGroup parentPreference = getPreferenceScreen();
+
         // Remove manual entry if none present.
         removePreferenceIfBoolFalse(KEY_MANUAL, R.bool.config_show_manual);
 
@@ -220,7 +222,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
         if (preference.getKey().equals(KEY_FIRMWARE_VERSION)
-                || preference.getKey().equals(KEY_MOD_VERSION)) {
+                || preference.getKey().equals(KEY_ZERO_VERSION)) {
             System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
             mHits[mHits.length-1] = SystemClock.uptimeMillis();
             if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
@@ -234,7 +236,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 }
 
                 Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.putExtra("is_lineage", preference.getKey().equals(KEY_MOD_VERSION));
+                intent.putExtra("is_lineage", preference.getKey().equals(KEY_ZERO_VERSION));
                 intent.setClassName("android",
                         com.android.internal.app.PlatLogoActivity.class.getName());
                 try {

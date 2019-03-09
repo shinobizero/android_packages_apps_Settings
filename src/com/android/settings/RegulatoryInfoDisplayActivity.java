@@ -59,7 +59,6 @@ public class RegulatoryInfoDisplayActivity extends Activity implements
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                .setTitle(R.string.regulatory_information_dialog_title)
                 .setOnDismissListener(this);
 
         View view = getLayoutInflater().inflate(R.layout.regulatory_info, null);
